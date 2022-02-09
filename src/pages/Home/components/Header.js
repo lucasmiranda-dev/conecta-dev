@@ -1,28 +1,41 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import logo from '../../../images/logo.png';
 import { makeStyles } from '@material-ui/styles';
 import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import SvgIcon from '@mui/material/SvgIcon';
+import { Bell } from 'react-feather';
 
 const useStyles = makeStyles({
-  root: {},
+  img: {
+    maxHeight: 55,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  userSection: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 });
 
 function Header() {
   const classes = useStyles();
   return (
-    <AppBar>
-      <div className='toolbar'>
-        <div className=''>
-          <span>ConectaDev</span>
-        </div>
-        <div className=''>
-          <Button color='primary' variant='contained'>
+    <AppBar elevation={0} position='fixed' color='inherit'>
+      <Toolbar>
+        <img src={logo} alt='logo' className={classes.img} />
+        <div className={classes.grow}></div>
+        <div className={classes.userSection}>
+          <Button variant='contained' color='primary' sx={{ marginRight: 2 }}>
             Novo Post
           </Button>
-          <span>img1</span>
-          <span>img2</span>
+          <SvgIcon>
+            <Bell></Bell>
+          </SvgIcon>
         </div>
-      </div>
+      </Toolbar>
     </AppBar>
   );
 }
